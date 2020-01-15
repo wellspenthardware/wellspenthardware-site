@@ -92,7 +92,7 @@ export class NavBar extends Component {
         <Toolbar>
           <img className={classes.logo} src={Logo} />
 
-          <p className={classes.title}>Well Spent Money</p>
+          <p className={classes.title}>Well Spent Hardware</p>
 
           <ButtonGroup
           className={classes.buttonGroup}
