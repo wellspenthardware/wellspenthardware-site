@@ -3,14 +3,14 @@ const myTheme = {
     orange:{
         main:"#FF9800",
         accent:"#FF9800",
-        light:"#FFE0B2",
-        dark:"#F57C00"
+        light:"#FFC947",
+        dark:"#C66900"
     },
     blue:{
         main:"#3F51B5",
         accent:"#536DFE",
-        light:"#C5CAE9",
-        dark:"#303F9F"
+        light:"#757DE8",
+        dark:"#002984"
     }
   },
   text: {

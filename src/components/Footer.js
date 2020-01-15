@@ -1,53 +1,57 @@
-import React, { Component } from "react";
-
-import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
-
-import { createMuiTheme } from "@material-ui/core/styles";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 
 import myConstants from "../utils/myConstants";
 import myTheme from "../utils/myTheme";
 
-const theme = createMuiTheme({});
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-const styles = theme => ({
+const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: myTheme.colors.orange.dark,
-
+    // marginTop: theme.spacing(8),
+    padding: theme.spacing(3, 0),
     position: "absolute",
     bottom: "0",
     width: "100%",
-    height: "60px" /* Height of the footer */
   },
-  aligner: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+}));
 
-export class Footer extends Component {
-  render() {
-    const { classes } = this.props;
-    return (
-      <div className={classes.aligner}>
-        <Typography
-          className={classes.footer}
-          variant="body2"
-          color="textSecondary"
-          align="center"
-        >
-          {"Copyright © "}
-          <Link color="inherit" href={myConstants.siteAdress}>
-            {myConstants.siteName}
-          </Link>{" "}
-          {new Date().getFullYear()}
-          {"."}
+export default function Footer(props) {
+  const classes = useStyles();
+  const { description, title } = props;
+
+  return (
+    <footer className={classes.footer}>
+      <Container maxWidth="lg">
+        <Typography variant="h6" align="center" gutterBottom>
+          {title}
         </Typography>
-      </div>
-    );
-  }
+        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+          {description}
+        </Typography>
+        <Copyright />
+      </Container>
+    </footer>
+  );
 }
 
-export default withStyles(styles)(Footer);
+Footer.propTypes = {
+  description: PropTypes.string,
+  title: PropTypes.string,
+};
