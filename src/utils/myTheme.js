@@ -17,6 +17,10 @@ const myTheme = {
     primary: "#212121",
     secondary: "#757575",
   },
+  icon:{
+    primary: "#212121",
+    secondary: "#757575", 
+  },
   divider:"#BDBDBD"
 };
 

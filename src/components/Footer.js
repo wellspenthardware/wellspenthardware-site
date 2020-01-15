@@ -19,6 +19,11 @@ const styles = theme => ({
     bottom: "0",
     width: "100%",
     height: "60px" /* Height of the footer */
+  },
+  aligner: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 
@@ -26,7 +31,13 @@ export class Footer extends Component {
   render() {
     const { classes } = this.props;
     return (
-        <Typography className={classes.footer} variant="body2" color="textSecondary" align="center">
+      <div className={classes.aligner}>
+        <Typography
+          className={classes.footer}
+          variant="body2"
+          color="textSecondary"
+          align="center"
+        >
           {"Copyright © "}
           <Link color="inherit" href={myConstants.siteAdress}>
             {myConstants.siteName}
@@ -34,6 +45,7 @@ export class Footer extends Component {
           {new Date().getFullYear()}
           {"."}
         </Typography>
+      </div>
     );
   }
 }
