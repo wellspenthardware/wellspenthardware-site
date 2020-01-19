@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
-import "../styles/Login.css";
+import { Container, TextField, Grid, Button, Link } from "@material-ui/core";
 
-import { Container, TextField, Grid, Button,Link } from "@material-ui/core";
-
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import VpnKeyOutlinedIcon from "@material-ui/icons/VpnKeyOutlined";
+import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
 
 import { createMuiTheme } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
@@ -51,15 +50,6 @@ const styles = theme => ({
     borderColor: myTheme.text.primary,
     padding: "0"
   },
-  lockIcon: {
-    color: myTheme.colors.blue.main,
-    display: "block",
-    margin: "0 auto",
-    marginTop: "16px",
-    marginBottom: "16px",
-    height: "40px",
-    width: "40px"
-  },
   titleText: {
     fontSize: "20px",
     fontWeight: "bold",
@@ -96,11 +86,38 @@ const styles = theme => ({
   textField: {
     borderColor: myTheme.colors.blue.main
   },
-  button:{
-      display:"block",
-      marginBottom:"16px",
-      marginLeft:"auto",
-      marginRight:"auto",
+  button: {
+    display: "block",
+    marginBottom: "16px",
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  suggestion: {
+    padding: "0px 16px 16px 0px"
+  },
+  keyIcon: {
+    color: myTheme.colors.blue.main,
+    display: "block-inline",
+    position: "absolute",
+    left: "50%",
+    transform: "translate(-50%, 0)",
+    marginTop: "16px",
+    marginBottom: "16px",
+    height: "40px",
+    width: "40px"
+  },
+  returnIcon: {
+    color: myTheme.colors.blue.main,
+    display: "block-inline",
+    height: "40px",
+    width: "40px"
+  },
+  icons: {
+    display: "block-inline",
+    width: "100%"
+  },
+  returnButton: {
+    margin: "16px 0px 16px 16px",
   }
 });
 
@@ -110,7 +127,12 @@ export class SignUp extends Component {
     return (
       <div className={classes.page}>
         <Container className={classes.container} maxWidth="xs">
-          <LockOutlinedIcon className={classes.lockIcon} />
+          <div className={classes.icons}>
+            <Button className={classes.returnButton} href="/">
+              <ArrowBackOutlinedIcon className={classes.returnIcon} />
+            </Button>
+            <VpnKeyOutlinedIcon className={classes.keyIcon} />
+          </div>
           <p className={classes.titleText} align="center">
             Log In
           </p>
@@ -140,13 +162,17 @@ export class SignUp extends Component {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button className={classes.button} variant="contained" color="primary">
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                >
                   Submit
                 </Button>
               </Grid>
             </Grid>
             <Grid container justify="flex-end">
-              <Grid item>
+              <Grid className={classes.suggestion} item>
                 <Link href="/signup" variant="body2">
                   Don't have an account? Sign up!
                 </Link>

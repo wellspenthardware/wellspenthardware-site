@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import "../styles/SignUp.css";
-
 import {
   Container,
   TextField,
@@ -13,6 +11,7 @@ import {
 } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
 
 import { createMuiTheme } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
@@ -59,15 +58,6 @@ const styles = theme => ({
     borderColor: myTheme.text.primary,
     padding: "0"
   },
-  lockIcon: {
-    color: myTheme.colors.blue.main,
-    display: "block",
-    margin: "0 auto",
-    marginTop: "16px",
-    marginBottom: "16px",
-    height: "40px",
-    width: "40px"
-  },
   titleText: {
     fontSize: "20px",
     fontWeight: "bold",
@@ -109,6 +99,33 @@ const styles = theme => ({
     marginBottom: "16px",
     marginLeft: "auto",
     marginRight: "auto"
+  },
+  lockIcon: {
+    color: myTheme.colors.blue.main,
+    display: "block-inline",
+    position: "absolute",
+    left: "50%",
+    transform: "translate(-50%, 0)",
+    marginTop: "16px",
+    marginBottom: "16px",
+    height: "40px",
+    width: "40px"
+  },
+  returnIcon: {
+    color: myTheme.colors.blue.main,
+    display: "block-inline",
+    height: "40px",
+    width: "40px"
+  },
+  icons: {
+    display: "block-inline",
+    width: "100%"
+  },
+  suggestion: {
+    padding: "0px 16px 16px 0px"
+  },
+  returnButton:{
+    margin: "16px 0px 16px 16px",
   }
 });
 
@@ -118,6 +135,9 @@ export class SignUp extends Component {
     return (
       <div className={classes.page}>
         <Container className={classes.container} maxWidth="xs">
+          <Button className={classes.returnButton} href="/">
+            <ArrowBackOutlinedIcon className={classes.returnIcon} />
+          </Button>
           <LockOutlinedIcon className={classes.lockIcon} />
           <p className={classes.titleText} align="center">
             Sign Up
@@ -204,7 +224,7 @@ export class SignUp extends Component {
               </Grid>
             </Grid>
             <Grid container justify="flex-end">
-              <Grid item>
+              <Grid className={classes.suggestion} item>
                 <Link href="/login" variant="body2">
                   Already have an account? Sign in!
                 </Link>
