@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "../styles/Login.css";
 
-import { Container, TextField, Grid, Button } from "@material-ui/core";
+import { Container, TextField, Grid, Button,Link } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
@@ -143,6 +143,13 @@ export class SignUp extends Component {
                 <Button className={classes.button} variant="contained" color="primary">
                   Submit
                 </Button>
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/signup" variant="body2">
+                  Don't have an account? Sign up!
+                </Link>
               </Grid>
             </Grid>
           </form>

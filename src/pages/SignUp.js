@@ -2,7 +2,15 @@ import React, { Component } from "react";
 
 import "../styles/SignUp.css";
 
-import { Container, TextField, Grid, Button } from "@material-ui/core";
+import {
+  Container,
+  TextField,
+  Grid,
+  Button,
+  FormControlLabel,
+  Checkbox,
+  Link
+} from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
@@ -96,11 +104,11 @@ const styles = theme => ({
   textField: {
     borderColor: myTheme.colors.blue.main
   },
-  button:{
-      display:"block",
-      marginBottom:"16px",
-      marginLeft:"auto",
-      marginRight:"auto",
+  button: {
+    display: "block",
+    marginBottom: "16px",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 });
 
@@ -178,9 +186,28 @@ export class SignUp extends Component {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Button className={classes.button} variant="contained" color="primary">
+                <FormControlLabel
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
+                  label="I agree to the Terms and Conditions."
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="primary"
+                >
                   Submit
                 </Button>
+              </Grid>
+            </Grid>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  Already have an account? Sign in!
+                </Link>
               </Grid>
             </Grid>
           </form>
