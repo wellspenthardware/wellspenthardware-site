@@ -86,7 +86,9 @@ const styles = theme => ({
     marginTop: "16px"
   },
   gridLeft: {
-    paddingRight: "16px"
+    [theme.breakpoints.up("sm")]: {
+      paddingRight: "16px"
+    }
   },
   gridBottom: {
     paddingBottom: "16px"
