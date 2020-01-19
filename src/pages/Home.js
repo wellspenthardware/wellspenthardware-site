@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
 import { createMuiTheme } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
  
@@ -14,6 +17,8 @@ export class Home extends Component {
     render() {
         return (
             <>
+            <NavBar/>
+            <Footer/>
             </>
         )
     }

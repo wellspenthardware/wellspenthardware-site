@@ -99,8 +99,8 @@ export class NavBar extends Component {
             color="primary"
             aria-label="outlined primary button group"
           >
-            <Button className={classes.button}>Login</Button>
-            <Button className={classes.button}>Sign Up</Button>
+            <Button className={classes.button} href="/login">Log In</Button>
+            <Button className={classes.button} href="/signup">Sign Up</Button>
           </ButtonGroup>
 
           <div className={classes.search}>
