@@ -177,7 +177,7 @@ export class SignUp extends Component {
                   autoComplete="current-password"
                 />
               </Grid>
-              <Grid center item xs={12}>
+              <Grid item xs={12}>
                 <Button className={classes.button} variant="contained" color="primary">
                   Submit
                 </Button>
