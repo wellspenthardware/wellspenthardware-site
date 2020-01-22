@@ -1,43 +1,22 @@
-const express = require("express");
-const cors = require("cors");
-const passport = require("passport");
-const GoogleStrategy = require("passport-google");
-const keys = require("../config");
-const chalk = require("chalk");
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
-let user = {};
+const db = require('./db')
 
-passport.serializeUser((user, cb) => {
-  cb(null, user);
-});
+const app = express()
+const apiPort = 5000
 
-passport.deserializeUser((user, cb) => {
-  cb(null, user);
-});
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
+app.use(bodyParser.json())
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: keys.GOOGLE.clientID,
-      clientSecret: keys.GOOGLE.clientSecret,
-      callbackUrl: "/auth/google/callback"
-    },
-    (accesToken, refreshToken, profile, cb) => {
-      console.log(chalk.red(JSON.stringify(profile)));
-      user = { ...profile };
-      return cb(null, profile);
-    }
-  )
-);
+require('./routes/api/signup')(app);
 
-const app = express();
-app.use(cors());
-app.use(passport.initialize());
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-app.get("/auth/google", passport.authenticate("google"));
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", (req, res) => {
-    res.redirect("/profile");
-  })
-);
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
+
+app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

@@ -143,10 +143,10 @@ export class SignUp extends Component {
                   variant="outlined"
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  id="nickname"
+                  label="Nickname"
+                  name="nickname"
+                  autoComplete="nickname"
                 />
               </Grid>
               <Grid className={classes.gridBottom} item xs={12}>
