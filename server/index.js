@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const db = require('./db')
+const db = require('./db/connect')
 
 const app = express()
 const apiPort = 5000
