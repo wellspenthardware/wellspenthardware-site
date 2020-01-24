@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
 
-require('./routes/api/signup')(app);
+require('./routes/api/account/signup')(app);
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 

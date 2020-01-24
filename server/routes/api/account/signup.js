@@ -1,4 +1,4 @@
-const User = require("../../models/User");
+const User = require("../../../models/User");
 
 module.exports = app => {
   app.post("/api/account/signup", (req, res, next) => {
@@ -36,8 +36,17 @@ module.exports = app => {
       });
     }
 
+    nickname = nickname.trim();
+
+    firstName = firstName.trim();
+
+    lastName = lastName.trim();
+
     email = email.toLowerCase();
     email = email.trim();
+
+    password = password.trim();
+ 
 
     // verify email doesn't exist
 
