@@ -5,7 +5,10 @@ const cors = require("cors");
 const db = require("./db/connect");
 
 const app = express();
-const apiPort = 5000;
+
+const constants = require("./constants");
+
+const apiPort = constants.PORT;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());

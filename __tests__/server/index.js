@@ -1,23 +1,42 @@
 var chai = require("chai"),
   chaiHttp = require("chai-http");
 var expect = chai.expect;
-const should = require("chai").should();
-const request = require("supertest");
 
-const app = require("../server/index.js");
+const constants = require("../../server/constants")
 
-describe("GET invalid routes", () => {
-  beforeAll(() => {
+beforeAll(() => {
     chai.use(chaiHttp);
   });
 
+describe("GET invalid routes", () => {
   test("GET /invalidRoute", () => {
     chai
-      .request("http://localhost:5000")
+      .request(`http://localhost:${constants.PORT}`)
       .get("/invalidRoute")
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
+        expect(res.text).to.be.equal("Invalid route!");
+      });
+  });
+  test("GET /api/invalidRoute", () => {
+    chai
+    .request(`http://localhost:${constants.PORT}`)
+      .get("/api/invalidRoute")
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res.text).to.be.equal("Invalid route!");
+      });
+  });
+  test("GET /api/invalidRoute", () => {
+    chai
+    .request(`http://localhost:${constants.PORT}`)
+      .get("/randomApi/randomRoute")
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res.text).to.be.equal("Invalid route!");
       });
   });
 });
