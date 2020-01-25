@@ -5,24 +5,36 @@ module.exports = app => {
     let { body } = req;
     let { nickname, firstName, lastName, email, password } = body;
 
+// validate 
+    
     if (!nickname) {
       return res.send({
         succes: false,
         message: "Error: Nickname cannot be blank."
       });
     }
+
+    if (nickname.contains(" ")) {
+      return res.send({
+        succes: false,
+        message: "Error: Nickname cannot contain whitespace."
+      });
+    }
+
     if (!firstName) {
       return res.send({
         succes: false,
         message: "Error: First name cannot be blank."
       });
     }
+
     if (!lastName) {
       return res.send({
         succes: false,
         message: "Error: Last name cannot be blank."
       });
     }
+
     if (!email) {
       return res.send({
         succes: false,
@@ -45,7 +57,7 @@ module.exports = app => {
     email = email.toLowerCase();
     email = email.trim();
 
-    password = password.trim();
+    // password = password.trim();
  
 
     // verify email doesn't exist
