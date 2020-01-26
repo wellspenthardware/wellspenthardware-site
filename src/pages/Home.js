@@ -29,6 +29,7 @@ export class Home extends Component {
   };
 
   componentDidMount() {
+      let loading = true;
     let posts = [];
     var client = contentful.createClient({
       space: "70tohv1nl7sr",
@@ -40,6 +41,7 @@ export class Home extends Component {
         posts.push(post);
       });
     //   console.log(posts);
+      loading = false;
       this.setState({ posts: posts });
     });
   }
