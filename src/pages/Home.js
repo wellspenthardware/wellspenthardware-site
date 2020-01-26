@@ -29,7 +29,7 @@ export class Home extends Component {
   };
 
   componentDidMount() {
-      let loading = true;
+    let loading = true;
     let posts = [];
     var client = contentful.createClient({
       space: "70tohv1nl7sr",
@@ -40,7 +40,7 @@ export class Home extends Component {
       entries.items.forEach(post => {
         posts.push(post);
       });
-    //   console.log(posts);
+      //   console.log(posts);
       loading = false;
       this.setState({ posts: posts });
     });
@@ -61,6 +61,8 @@ export class Home extends Component {
           >
             {this.state.posts.map((fields, i) => (
               <PostCard
+                post={fields.fields}
+                path={fields.fields.path}
                 title={fields.fields.title}
                 description={fields.fields.description}
                 image={fields.fields.thumbnail.fields.file.url}

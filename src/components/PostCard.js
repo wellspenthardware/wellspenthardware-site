@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
+
 import { createMuiTheme } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -24,16 +26,20 @@ const styles = theme => ({
   gridItem: {
     marginTop: "16px"
   },
-  title:{
-      marginBottom:"0px"
+  title: {
+    marginBottom: "0px"
   },
-  accessButton:{
-    marginLeft:"auto",
-    marginRight:"auto"
+  accessButton: {
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 });
 
 export class PostCard extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -41,7 +47,13 @@ export class PostCard extends Component {
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent>
-              <Typography className={classes.title} align="center" gutterBottom variant="h5" component="h2">
+              <Typography
+                className={classes.title}
+                align="center"
+                gutterBottom
+                variant="h5"
+                component="h2"
+              >
                 {this.props.title}
               </Typography>
             </CardContent>
@@ -60,9 +72,17 @@ export class PostCard extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions disableSpacing>
-            <Button className={classes.accessButton} size="small" color="primary">
-              Acces Post
-            </Button>
+            <Link
+              to={{
+                pathname: `/blog/${this.props.path}`,
+                state: { post: this.props }
+              }}
+              className={classes.accessButton}
+            >
+              <Button size="small" color="primary">
+                Acces Post
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </Grid>
