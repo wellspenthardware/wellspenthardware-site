@@ -50,7 +50,7 @@ export class Post extends Component {
     return (
       <>
         <NavBar />
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           <Grid className={classes.gridContainer} container>
             <Grid item xs={12}>
               <Card className={classes.card}>

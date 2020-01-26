@@ -31,7 +31,8 @@ const styles = theme => ({
   },
   accessButton: {
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    textDecoration:"none"
   }
 });
 
