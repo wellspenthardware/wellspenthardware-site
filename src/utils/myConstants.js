@@ -1,5 +1,5 @@
 const myConstants = {
-  siteAdress: "www.wellspenthardware.tk",
+  siteAddress: "https://wellspenthardware.tk",
   siteName: "Well Spent Hardware",
   contentful: {
     space: "70tohv1nl7sr",
