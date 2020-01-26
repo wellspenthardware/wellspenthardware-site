@@ -74,7 +74,7 @@ export class PostCard extends Component {
           <CardActions disableSpacing>
             <Link
               to={{
-                pathname: `/blog/${this.props.path}`,
+                pathname: `/posts/${this.props.path}`,
                 state: { post: this.props }
               }}
               className={classes.accessButton}
