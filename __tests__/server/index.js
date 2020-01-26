@@ -7,8 +7,8 @@ const constants = require("../../server/constants")
 beforeAll(() => {
     chai.use(chaiHttp);
   });
-
-describe("GET invalid routes", () => {
+  
+describe("GET invalid routes", () => { 
   test("GET /invalidRoute", () => {
     chai
       .request(`http://localhost:${constants.PORT}`)
