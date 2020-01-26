@@ -18,13 +18,13 @@ require("./routes/api/account/signup")(app);
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
+// check if server is running
 app.get("/", (req, res) => {
-  res.send("Server is working!");
+  res.send("Server is running!");
 });
 
-app.get(`*`, function(req, res) {
-  res.send("Invalid route!");
-});
+// require code for any routes that don't exist
+require("./routes/any")(app);
 
 module.exports = app.listen(apiPort, () =>
   console.log(`Server running on port ${apiPort}`)
