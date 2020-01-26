@@ -26,9 +26,9 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: myTheme.colors.orange.dark,
     // marginTop: theme.spacing(8),
     padding: theme.spacing(3, 0),
-    position: "absolute",
-    bottom: "0",
-    width: "100%",
+    // position: "absolute",
+    // bottom: "0",
+    // width: "100%",
   },
 }));
 
