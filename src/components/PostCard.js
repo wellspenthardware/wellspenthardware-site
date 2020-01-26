@@ -19,10 +19,17 @@ const theme = createMuiTheme({});
 
 const styles = theme => ({
   card: {
-    maxWidth:1000
+    maxWidth: 1000
   },
   gridItem: {
     marginTop: "16px"
+  },
+  title:{
+      marginBottom:"0px"
+  },
+  accessButton:{
+    marginLeft:"auto",
+    marginRight:"auto"
   }
 });
 
@@ -33,6 +40,12 @@ export class PostCard extends Component {
       <Grid className={classes.gridItem} item xs={12}>
         <Card className={classes.card}>
           <CardActionArea>
+            <CardContent>
+              <Typography className={classes.title} align="center" gutterBottom variant="h5" component="h2">
+                {this.props.title}
+              </Typography>
+            </CardContent>
+
             <CardMedia
               component="img"
               alt="Contemplative Reptile"
@@ -41,23 +54,14 @@ export class PostCard extends Component {
               title="Contemplative Reptile"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {this.props.title ? this.props.title : "Title"}
-              </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                {this.props.description
-                  ? this.props.description
-                  : `Lizards are a widespread group of squamate reptiles,
-                   with over 6,000 species, ranging across all continents except Antarctica`}
+                {this.props.description}
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Share
-            </Button>
-            <Button size="small" color="primary">
-              Learn More
+          <CardActions disableSpacing>
+            <Button className={classes.accessButton} size="small" color="primary">
+              Acces Post
             </Button>
           </CardActions>
         </Card>
