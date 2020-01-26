@@ -36,13 +36,10 @@ export class Home extends Component {
     });
 
     client.getEntries().then(entries => {
-      entries.items.forEach(entry => {
-        posts.push(entry);
-        // if (entry.fields) {
-        //   console.log(entry.fields);
-        // }
+      entries.items.forEach(post => {
+        posts.push(post);
       });
-      console.log(posts);
+    //   console.log(posts);
       this.setState({ posts: posts });
     });
   }

@@ -19,7 +19,7 @@ const theme = createMuiTheme({});
 
 const styles = theme => ({
   card: {
-    maxWidth: 345
+    maxWidth:1000
   },
   gridItem: {
     marginTop: "16px"
@@ -36,7 +36,7 @@ export class PostCard extends Component {
             <CardMedia
               component="img"
               alt="Contemplative Reptile"
-              height="140"
+              height="350"
               image={this.props.image}
               title="Contemplative Reptile"
             />
