@@ -71,16 +71,6 @@ export class Home extends Component {
             ))}
           </Grid>
         </Container>
-        <div id="130722687">
-        <script type="text/javascript">
-            try {
-                window._mNHandle.queue.push(function (){
-                    window._mNDetails.loadTag("130722687", "300x250", "130722687");
-                });
-            }
-            catch (error) {}
-        </script>
-    </div>
         <Footer />
       </>
     );
