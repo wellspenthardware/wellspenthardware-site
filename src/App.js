@@ -2,13 +2,7 @@
 import React, { Component } from "react";
 
 // React Router
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch,Redirect } from "react-router-dom";
 
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
@@ -21,12 +15,13 @@ export class App extends Component {
       <React.StrictMode>
         <Router>
           <Switch>
-            <Redirect exact from="/" to="/posts" />
+            {
               // <Route path="/signup" component={SignUp}/>
               // <Route path="/login" component={LogIn}/>
             }
             <Route exact path="/posts" component={Home} />
             <Route path="/posts/:post" component={Post} />
+            <Redirect exact from="/" to="/posts" />
           </Switch>
         </Router>
       </React.StrictMode>
