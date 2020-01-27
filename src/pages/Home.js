@@ -17,11 +17,19 @@ import PostCard from "../components/PostCard";
 
 import * as contentful from "contentful";
 
+import ScriptTag from "react-script-tag";
+
 const theme = createMuiTheme({});
 
 const styles = theme => ({
   gridContainer: {}
 });
+
+function Ad1() {
+  return (
+    <ScriptTag  type="text/javascript" src="../ads/ad1.js" />
+  );
+}
 
 export class Home extends Component {
   state = {
@@ -69,6 +77,9 @@ export class Home extends Component {
                 key={i}
               />
             ))}
+            <div id="130722687">
+              <Ad1 />
+            </div>
           </Grid>
         </Container>
         <Footer />
