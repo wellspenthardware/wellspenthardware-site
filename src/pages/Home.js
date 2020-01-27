@@ -22,13 +22,12 @@ import ScriptTag from "react-script-tag";
 const theme = createMuiTheme({});
 
 const styles = theme => ({
-  gridContainer: {}
+  gridContainer: {},
+  ad1: {}
 });
 
 function Ad1() {
-  return (
-    <ScriptTag  type="text/javascript" src="../ads/ad1.js" />
-  );
+  return <ScriptTag type="text/javascript" src="../ads/ad1.js" />;
 }
 
 export class Home extends Component {
@@ -77,7 +76,7 @@ export class Home extends Component {
                 key={i}
               />
             ))}
-            <div id="130722687">
+            <div className={classes.ad1}>
               <Ad1 />
             </div>
           </Grid>
