@@ -17,6 +17,8 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import Logo from "../images/logo.png";
 
+import { Link } from "react-router-dom";
+
 const theme = createMuiTheme({});
 
 const styles = theme => ({
@@ -81,6 +83,9 @@ const styles = theme => ({
   },
   buttonGroup: {
     paddingRight: "15px"
+  },
+  link: {
+    textDecoration: "none"
   }
 });
 export class NavBar extends Component {
@@ -90,12 +95,12 @@ export class NavBar extends Component {
     return (
       <AppBar className={classes.navBar} position="sticky">
         <Toolbar>
-          <a href="/">
+          <Link className={classes.link} to="/posts">
             <img
               className={classes.logo}
               src={`https://scontent.fias1-1.fna.fbcdn.net/v/t1.15752-9/84696294_1030783747296500_7022495249511481344_n.png?_nc_cat=110&_nc_ohc=2R840jNkENMAX-CQKKD&_nc_ht=scontent.fias1-1.fna&oh=4c64a42c99c10c859d65787941e1bf8f&oe=5E9554E1`}
             />
-          </a>
+          </Link>
           <p className={classes.title}>Well Spent Hardware</p>
 
           {
