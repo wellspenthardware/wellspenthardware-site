@@ -6,8 +6,7 @@ import {
   Grid,
   Button,
   FormControlLabel,
-  Checkbox,
-  Link
+  Checkbox
 } from "@material-ui/core";
 
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -19,6 +18,8 @@ import { withStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import myConstants from "../utils/myConstants";
 import myTheme from "../utils/myTheme";
+
+import { Link } from "react-router-dom";
 
 const CssTextField = withStyles({
   root: {
@@ -124,8 +125,8 @@ const styles = theme => ({
   suggestion: {
     padding: "0px 16px 16px 0px"
   },
-  returnButton:{
-    margin: "16px 0px 16px 16px",
+  returnButton: {
+    margin: "16px 0px 16px 16px"
   }
 });
 
@@ -135,9 +136,11 @@ export class SignUp extends Component {
     return (
       <div className={classes.page}>
         <Container className={classes.container} maxWidth="xs">
-          <Button className={classes.returnButton} href="/">
-            <ArrowBackOutlinedIcon className={classes.returnIcon} />
-          </Button>
+          <Link to="/posts">
+            <Button className={classes.returnButton}>
+              <ArrowBackOutlinedIcon className={classes.returnIcon} />
+            </Button>
+          </Link>
           <LockOutlinedIcon className={classes.lockIcon} />
           <p className={classes.titleText} align="center">
             Sign Up
@@ -225,9 +228,7 @@ export class SignUp extends Component {
             </Grid>
             <Grid container justify="flex-end">
               <Grid className={classes.suggestion} item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in!
-                </Link>
+                <Link to="/login">Already have an account? Sign in!</Link>
               </Grid>
             </Grid>
           </form>
