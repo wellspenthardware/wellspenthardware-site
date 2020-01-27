@@ -22,9 +22,8 @@ export class App extends Component {
         <Router>
           <Switch>
             <Redirect exact from="/" to="/posts" />
-              // <Route path="/signup" component={SignUp}/>
-              // <Route path="/login" component={LogIn}/>
-            }
+            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={LogIn} />
             <Route exact path="/posts" component={Home} />
             <Route path="/posts/:post" component={Post} />
           </Switch>

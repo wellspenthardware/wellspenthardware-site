@@ -103,16 +103,20 @@ export class NavBar extends Component {
           </Link>
           <p className={classes.title}>Well Spent Hardware</p>
 
-          {
-            // <ButtonGroup
-            // className={classes.buttonGroup}
-            //   color="primary"
-            //   aria-label="outlined primary button group"
-            // >
-            // </Toolbar>  <Button className={classes.button} href="/login">Log In</Button>
-            //   <Button className={classes.button} href="/signup">Sign Up</Button>
-            // </ButtonGroup>
-          }
+          <ButtonGroup
+            className={classes.buttonGroup}
+            color="primary"
+            aria-label="outlined primary button group"
+          >
+            <Link className={classes.link} to="/login">
+              <Button variant="outlined" color="primary" className={classes.button}>Log In</Button>
+            </Link>
+            <Link className={classes.link} to="/signup">
+            <Button variant="outlined" color="primary" className={classes.button}>
+                Sign Up
+            </Button>
+            </Link>
+          </ButtonGroup>
 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
